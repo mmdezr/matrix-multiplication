@@ -76,14 +76,12 @@ public class MatrixOperations {
         CompressedColumnMatrixBuilder ccsBuilder = new CompressedColumnMatrixBuilder();
         CompressedRowMatrix crsMatrix = crsBuilder.convertToCRS(coordinates, rows, cols);
         CompressedColumnMatrix ccsMatrix = ccsBuilder.convertToCCS(coordinates, rows, cols);
-        System.out.println(multiply(crsMatrix, ccsMatrix));
         return multiply(crsMatrix, ccsMatrix);
     }
 
     @Benchmark
     public SparseMatrix benchmarkMultiplyDense() {
         DenseMatrix denseMatrix = DenseMatrixBuilder.convertToDenseMatrix(coordinates, size);
-        System.out.println(multiplyDense(denseMatrix));
         return multiplyDense(denseMatrix);
     }
 
